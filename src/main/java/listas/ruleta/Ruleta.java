@@ -46,12 +46,12 @@ public class Ruleta {
 
             System.out.println("Esta es la informacion de los jugadores\n");
 
-            Players Juagdores = new Players();
+            Players Jugadores = new Players();
 
-            Juagdores.initPlayers();
+            Jugadores.initPlayers();
 
-            for (int i = 0; i < Juagdores.total; i++) {// Mostramos la informacion de cada jugador
-                ListaEnlazadaPlayers.Node aux_player = Juagdores.DatosPlayers.getNodeAt(i);
+            for (int i = 0; i < Jugadores.total; i++) {// Mostramos la informacion de cada jugador
+                ListaEnlazadaPlayers.Node aux_player = Jugadores.DatosPlayers.getNodeAt(i);
 
                 System.out.println("Nombre Jugador n° " + (i + 1) + ": " + aux_player.data.nombre.toString()
                         + " " + aux_player.data.apellido.toString() + ", Credito: " + aux_player.data.saldo + "\n");
@@ -59,9 +59,9 @@ public class Ruleta {
 
             System.out.println("Se procedera a procesar a los jugadores\n");
 
-            for (int i = 0; i < Juagdores.total; i++) {// Recorremos cada jugador para iniciar su partida
+            for (int i = 0; i < Jugadores.total; i++) {// Recorremos cada jugador para iniciar su partida
 
-                ListaEnlazadaPlayers.Node aux_player = Juagdores.DatosPlayers.getNodeAt(i);
+                ListaEnlazadaPlayers.Node aux_player = Jugadores.DatosPlayers.getNodeAt(i);
 
                 if (aux_player.data.status == 1 && aux_player.data.saldo > 0) { // Validamos que el jugador siga activo
                                                                                 // y que su saldo sea mayor a 0
@@ -76,7 +76,7 @@ public class Ruleta {
                     }
 
                     if (aux_player.data.status == 1) {
-                        Boolean statusValidateJuagada = true;
+                        Boolean statusValidateJugada = true;
 
                         do {
                             /*
@@ -134,8 +134,8 @@ public class Ruleta {
                                     break;
                             }
 
-                            statusValidateJuagada = aux_player.data.validateJugada();
-                        } while (!statusValidateJuagada);
+                            statusValidateJugada = aux_player.data.validateJugada();
+                        } while (!statusValidateJugada);
                     }
 
                 }
@@ -154,8 +154,8 @@ public class Ruleta {
 
                     if (random_num == Integer.valueOf(Ruleta.DatosTablero.getNodeAt(i).data.num)) {
                         System.out.println("Bola callo en: " + random_num);
-                        Juagdores.ValidateWinners(random_num);
-                        Juagdores.updatePlayerFiles();
+                        Jugadores.ValidateWinners(random_num);
+                        Jugadores.updatePlayerFiles();
                         statusRuleta = true;
                         break;
                     }
